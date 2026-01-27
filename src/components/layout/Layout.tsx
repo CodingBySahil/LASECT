@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
-import { Header } from './Header';
-import { Footer } from './Footer';
-import { ScholarshipAlert } from '../ui/ScholarshipAlert';
+import { ReactNode } from "react";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
+import { ScholarshipAlert } from "../ui/ScholarshipAlert";
 
 interface LayoutProps {
   children: ReactNode;
@@ -12,9 +12,7 @@ export function Layout({ children }: LayoutProps) {
     <div className="min-h-screen flex flex-col">
       <Header />
       <ScholarshipAlert />
-      <main className="flex-1">
-        {children}
-      </main>
+      <main className="flex-1">{children}</main>
       <Footer />
     </div>
   );
