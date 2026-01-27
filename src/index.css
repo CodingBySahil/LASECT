@@ -1,0 +1,331 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LASECT Academy Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@layer base {
+  :root {
+    /* Primary - Professional Deep Blue */
+    --primary: 222 47% 31%;
+    --primary-foreground: 210 40% 98%;
+    
+    /* Secondary - Warm Gray */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 20%;
+    
+    /* Background */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    
+    /* Cards */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    /* Muted */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    
+    /* Accent - Scholarship Red/Pink */
+    --accent: 346 77% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Alert/Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 222 47% 31%;
+    
+    --radius: 0.75rem;
+    
+    /* Custom Academy Colors */
+    --academy-blue: 222 47% 31%;
+    --academy-blue-light: 217 91% 60%;
+    --academy-blue-dark: 222 47% 20%;
+    --academy-gold: 45 93% 47%;
+    --academy-success: 142 76% 36%;
+    --scholarship-red: 346 77% 50%;
+    --scholarship-glow: 346 77% 60%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 31%) 0%, hsl(217 91% 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
+    --gradient-scholarship: linear-gradient(135deg, hsl(346 77% 50%) 0%, hsl(346 77% 65%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.1), 0 2px 4px -2px hsl(222 47% 11% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.1), 0 4px 6px -4px hsl(222 47% 11% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(222 47% 11% / 0.1), 0 8px 10px -6px hsl(222 47% 11% / 0.1);
+    --shadow-card: 0 4px 20px -2px hsl(222 47% 11% / 0.08);
+    --shadow-card-hover: 0 12px 30px -4px hsl(222 47% 11% / 0.15);
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 346 77% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 212 27% 84%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl;
+    @apply bg-white text-primary shadow-lg;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-xl hover:scale-105 hover:-translate-y-0.5;
+    @apply active:scale-95 active:shadow-md;
+    @apply focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  .btn-hero-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl;
+    @apply bg-transparent text-white border-2 border-white/30;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:bg-white/10 hover:border-white/60 hover:scale-105 hover:-translate-y-0.5;
+    @apply active:scale-95;
+    @apply focus:outline-none focus:ring-2 focus:ring-white/50;
+  }
+
+  /* Card Styles */
+  .academy-card {
+    @apply bg-card rounded-2xl p-6 transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-card);
+  }
+
+  .academy-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    @apply -translate-y-1;
+  }
+
+  /* Scholarship Alert */
+  .scholarship-alert {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-white cursor-pointer;
+    background: var(--gradient-scholarship);
+    animation: scholarship-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scholarship-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(346 77% 50% / 0.7);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 20px 8px hsl(346 77% 50% / 0);
+      transform: scale(1.02);
+    }
+  }
+
+  /* Scroll Animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+  .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+  .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+  .animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+  .animate-on-scroll.delay-5 { transition-delay: 0.5s; }
+
+  /* Fade animations */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Slide animations */
+  .slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Scale animation */
+  .scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Navigation link underline */
+  .nav-link {
+    @apply relative text-foreground/80 font-medium transition-colors duration-200;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover {
+    @apply text-primary;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  .nav-link.active {
+    @apply text-primary font-semibold;
+  }
+
+  /* Section Title */
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto;
+  }
+
+  /* Hero gradient */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+
+  .scholarship-alert {
+    animation: none;
+    box-shadow: 0 0 15px hsl(346 77% 50% / 0.4);
+  }
+}
