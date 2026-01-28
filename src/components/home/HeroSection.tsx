@@ -15,11 +15,22 @@ export function HeroSection() {
         <div className="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-16">
           {/* Content Section - Left */}
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <h1
-              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6 fade-in-up"
-              style={{ animationDelay: "0.2s", color: "#00ffb3" }}
-            >
-              The London Academy of Spoken English and Computer Technology
+            <h1 className="font-heading font-bold mb-6 text-white">
+              {/* Main Highlighted Text */}
+              <span
+                className="block text-3xl md:text-4xl lg:text-5xl text-[#00ffb3] drop-shadow-[0_0_10px_#00ffb3] animate-fade-in-up"
+                style={{ animationDelay: "0.2s" }}
+              >
+                The London Academy
+              </span>
+
+              {/* Subtext */}
+              <span
+                className="block text-2xl md:text-3xl lg:text-4xl text-white/80 drop-shadow-lg animate-fade-in-up"
+                style={{ animationDelay: "0.4s" }}
+              >
+                of Spoken English and Computer Technology
+              </span>
             </h1>
 
             <p
@@ -42,18 +53,17 @@ export function HeroSection() {
               style={{ animationDelay: "0.6s" }}
             >
               <Link
+                to="/scholarship"
+                className="btn-hero-secondary bg-[#4ade80] hover:bg-[#22c55e] text-black px-6 py-3 rounded-xl font-semibold shadow-lg transition-all flex items-center justify-center"
+              >
+                Apply for Scholarship Test
+              </Link>
+              <Link
                 to="/register"
                 className="btn-hero-primary group bg-[#ffb547] text-black px-6 py-3 rounded-xl font-semibold shadow-lg hover:bg-[#ff9f1a] transition-all flex items-center justify-center"
               >
                 Sign Up Now
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-              </Link>
-
-              <Link
-                to="/scholarship"
-                className="btn-hero-secondary bg-[#4ade80] hover:bg-[#22c55e] text-black px-6 py-3 rounded-xl font-semibold shadow-lg transition-all flex items-center justify-center"
-              >
-                Apply for Scholarship Test
               </Link>
             </div>
 
