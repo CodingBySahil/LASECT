@@ -10,6 +10,8 @@ import {
   Phone,
   Mail,
   Clock,
+  ArrowRight,
+  Link,
 } from "lucide-react";
 
 interface FormData {
@@ -123,30 +125,49 @@ const Register = () => {
   if (isSubmitted) {
     return (
       <Layout>
-        <section className="pt-32 pb-20 min-h-screen flex items-center">
+        <section className="pt-32 pb-20 min-h-screen flex items-center bg-[#0f172a]">
           <div className="container mx-auto px-4">
-            <div className="max-w-md mx-auto text-center">
-              <div className="w-20 h-20 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-6 scale-in">
-                <CheckCircle className="w-10 h-10 text-green-600" />
+            <div className="max-w-md mx-auto text-center space-y-6 relative z-10">
+              {/* Success Icon */}
+              <div className="w-24 h-24 mx-auto rounded-full bg-[#00ffb3]/10 flex items-center justify-center mb-6 scale-in">
+                <CheckCircle className="w-12 h-12 text-[#00ffb3]" />
               </div>
-              <h1 className="text-3xl font-heading font-bold mb-4 fade-in-up">
+
+              {/* Heading */}
+              <h1 className="text-3xl md:text-4xl font-heading font-bold text-[#00ffb3] drop-shadow-[0_0_10px_#00ffb3] fade-in-up">
                 Registration Successful!
               </h1>
+
+              {/* Description */}
               <p
-                className="text-muted-foreground mb-8 fade-in-up"
+                className="text-white/80 text-lg fade-in-up"
                 style={{ animationDelay: "0.1s" }}
               >
                 ✅ Your registration has been submitted successfully. Our team
                 will contact you shortly.
               </p>
+
+              {/* Return Home Button */}
               <a
                 href="/"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-xl transition-all hover:shadow-lg fade-in-up"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#00ffb3] text-black font-semibold rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all fade-in-up"
                 style={{ animationDelay: "0.2s" }}
               >
                 Return to Home
+                <ArrowRight className="w-5 h-5" />
               </a>
             </div>
+          </div>
+
+          {/* Optional Floating Background Decorations */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-white/5 rounded-full blur-3xl" />
+            <div className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-white/5 rounded-full blur-3xl" />
+            <div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+      w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] 
+      from-white/10 via-transparent to-transparent"
+            />
           </div>
         </section>
       </Layout>
@@ -155,15 +176,29 @@ const Register = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="pt-32 pb-16 hero-gradient">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6 fade-in-up">
+      {/* Register Now Section */}
+      <section className="relative pt-32 pb-24 overflow-hidden bg-[#0f172a]">
+        {/* Background Decorations */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-white/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-white/5 rounded-full blur-3xl" />
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+        w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] 
+        from-white/10 via-transparent to-transparent"
+          />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center space-y-8">
+            {/* Section Title */}
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-[#00ffb3]   animate-fade-in-up">
               Register Now
             </h1>
+
+            {/* Subtitle */}
             <p
-              className="text-lg text-white/80 fade-in-up"
+              className="text-lg md:text-xl text-white/80 animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
               Take the first step towards your success at LASECT
@@ -173,7 +208,7 @@ const Register = () => {
       </section>
 
       {/* Form Section */}
-      <section className="py-20">
+      <section className="py-20 bg-[#0f172a] my-16">
         <div className="container mx-auto px-4">
           <div
             ref={ref}
@@ -186,16 +221,21 @@ const Register = () => {
             <SectionTitle
               title="Registration Form"
               subtitle="Please fill in your details below. All fields are required."
+              titleClassName="text-[#00ffb3]"
+              subtitleClassName="text-[#ff9f43]"
             />
 
-            <form onSubmit={handleSubmit} className="academy-card space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="academy-card space-y-6 bg-[#1a2238] p-8 rounded-3xl shadow-lg"
+            >
               {/* Full Name */}
               <div>
                 <label
                   htmlFor="fullName"
-                  className="flex items-center gap-2 text-sm font-medium mb-2"
+                  className="flex items-center gap-2 text-sm font-medium mb-2 text-[#00ffb3]"
                 >
-                  <User className="w-4 h-4 text-primary" />
+                  <User className="w-4 h-4 text-[#00ffb3]" />
                   Full Name
                 </label>
                 <input
@@ -205,8 +245,8 @@ const Register = () => {
                   value={formData.fullName}
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-xl border ${
-                    errors.fullName ? "border-red-500" : "border-border"
-                  } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all`}
+                    errors.fullName ? "border-red-500" : "border-[#00ffb3]/50"
+                  } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                   placeholder="Enter your full name"
                 />
                 {errors.fullName && (
@@ -221,9 +261,9 @@ const Register = () => {
               <div>
                 <label
                   htmlFor="fatherName"
-                  className="flex items-center gap-2 text-sm font-medium mb-2"
+                  className="flex items-center gap-2 text-sm font-medium mb-2 text-[#00ffb3]"
                 >
-                  <User className="w-4 h-4 text-primary" />
+                  <User className="w-4 h-4 text-[#00ffb3]" />
                   Father's Name
                 </label>
                 <input
@@ -233,8 +273,8 @@ const Register = () => {
                   value={formData.fatherName}
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-xl border ${
-                    errors.fatherName ? "border-red-500" : "border-border"
-                  } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all`}
+                    errors.fatherName ? "border-red-500" : "border-[#00ffb3]/50"
+                  } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                   placeholder="Enter your father's name"
                 />
                 {errors.fatherName && (
@@ -247,16 +287,18 @@ const Register = () => {
 
               {/* Gender */}
               <div>
-                <label className="text-sm font-medium mb-3 block">Gender</label>
+                <label className="text-sm font-medium mb-3 block text-[#00ffb3]">
+                  Gender
+                </label>
                 <div className="flex gap-4">
                   {["Male", "Female", "Other"].map((option) => (
                     <label
                       key={option}
                       className={`flex items-center gap-2 px-4 py-3 rounded-xl border cursor-pointer transition-all ${
                         formData.gender === option
-                          ? "border-primary bg-primary/5"
-                          : "border-border hover:border-primary/50"
-                      }`}
+                          ? "border-[#00ffb3] bg-[#00ffb3]/10"
+                          : "border-[#00ffb3]/30 hover:border-[#00ffb3]/50"
+                      } text-white`}
                     >
                       <input
                         type="radio"
@@ -269,12 +311,12 @@ const Register = () => {
                       <div
                         className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
                           formData.gender === option
-                            ? "border-primary"
-                            : "border-muted-foreground"
+                            ? "border-[#00ffb3]"
+                            : "border-white/40"
                         }`}
                       >
                         {formData.gender === option && (
-                          <div className="w-2 h-2 rounded-full bg-primary" />
+                          <div className="w-2 h-2 rounded-full bg-[#00ffb3]" />
                         )}
                       </div>
                       {option}
@@ -293,9 +335,9 @@ const Register = () => {
               <div>
                 <label
                   htmlFor="timeSlot"
-                  className="flex items-center gap-2 text-sm font-medium mb-2"
+                  className="flex items-center gap-2 text-sm font-medium mb-2 text-[#00ffb3]"
                 >
-                  <Clock className="w-4 h-4 text-primary" />
+                  <Clock className="w-4 h-4 text-[#00ffb3]" />
                   Preferred Time Slot
                 </label>
                 <select
@@ -304,8 +346,8 @@ const Register = () => {
                   value={formData.timeSlot}
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-xl border ${
-                    errors.timeSlot ? "border-red-500" : "border-border"
-                  } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all`}
+                    errors.timeSlot ? "border-red-500" : "border-[#00ffb3]/50"
+                  } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                 >
                   <option value="">Select a time slot</option>
                   {timeSlots.map((slot) => (
@@ -326,9 +368,9 @@ const Register = () => {
               <div>
                 <label
                   htmlFor="whatsappNumber"
-                  className="flex items-center gap-2 text-sm font-medium mb-2"
+                  className="flex items-center gap-2 text-sm font-medium mb-2 text-[#00ffb3]"
                 >
-                  <Phone className="w-4 h-4 text-primary" />
+                  <Phone className="w-4 h-4 text-[#00ffb3]" />
                   WhatsApp Number
                 </label>
                 <input
@@ -338,8 +380,10 @@ const Register = () => {
                   value={formData.whatsappNumber}
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-xl border ${
-                    errors.whatsappNumber ? "border-red-500" : "border-border"
-                  } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all`}
+                    errors.whatsappNumber
+                      ? "border-red-500"
+                      : "border-[#00ffb3]/50"
+                  } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                   placeholder="e.g., 03001234567"
                 />
                 {errors.whatsappNumber && (
@@ -354,9 +398,9 @@ const Register = () => {
               <div>
                 <label
                   htmlFor="phoneNumber"
-                  className="flex items-center gap-2 text-sm font-medium mb-2"
+                  className="flex items-center gap-2 text-sm font-medium mb-2 text-[#00ffb3]"
                 >
-                  <Phone className="w-4 h-4 text-primary" />
+                  <Phone className="w-4 h-4 text-[#00ffb3]" />
                   Phone Number
                 </label>
                 <input
@@ -366,8 +410,10 @@ const Register = () => {
                   value={formData.phoneNumber}
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-xl border ${
-                    errors.phoneNumber ? "border-red-500" : "border-border"
-                  } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all`}
+                    errors.phoneNumber
+                      ? "border-red-500"
+                      : "border-[#00ffb3]/50"
+                  } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                   placeholder="e.g., 03001234567"
                 />
                 {errors.phoneNumber && (
@@ -382,9 +428,9 @@ const Register = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="flex items-center gap-2 text-sm font-medium mb-2"
+                  className="flex items-center gap-2 text-sm font-medium mb-2 text-[#00ffb3]"
                 >
-                  <Mail className="w-4 h-4 text-primary" />
+                  <Mail className="w-4 h-4 text-[#00ffb3]" />
                   Email Address
                 </label>
                 <input
@@ -394,8 +440,8 @@ const Register = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className={`w-full px-4 py-3 rounded-xl border ${
-                    errors.email ? "border-red-500" : "border-border"
-                  } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all`}
+                    errors.email ? "border-red-500" : "border-[#00ffb3]/50"
+                  } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                   placeholder="Enter your email address"
                 />
                 {errors.email && (
@@ -410,7 +456,7 @@ const Register = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-primary text-primary-foreground font-bold rounded-xl transition-all hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full px-8 py-4 bg-[#00ffb3] text-black font-bold rounded-xl transition-all hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>

@@ -7,34 +7,45 @@ const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    console.error(
+      "404 Error: User attempted to access non-existent route:",
+      location.pathname
+    );
   }, [location.pathname]);
 
   return (
     <Layout>
-      <section className="pt-32 pb-20 min-h-screen flex items-center">
+      <section className="pt-32 pb-20 min-h-screen flex items-center bg-[#0f172a]">
         <div className="container mx-auto px-4">
-          <div className="max-w-lg mx-auto text-center">
-            <div className="text-8xl font-heading font-bold text-primary/20 mb-4">
+          <div className="max-w-lg mx-auto text-center space-y-6">
+            {/* 404 Code */}
+            <div className="text-8xl font-heading font-bold text-[#00ffb3]/30 drop-shadow-[0_0_20px_#00ffb3]">
               404
             </div>
-            <h1 className="text-3xl font-heading font-bold mb-4">
+
+            {/* Heading */}
+            <h1 className="text-3xl md:text-4xl font-heading font-bold text-white">
               Page Not Found
             </h1>
-            <p className="text-muted-foreground mb-8">
+
+            {/* Description */}
+            <p className="text-white/80">
               Sorry, the page you're looking for doesn't exist or has been moved.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6">
               <Link
                 to="/"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-xl transition-all hover:shadow-lg hover:scale-105"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#00ffb3] text-[#0f172a] font-semibold rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all"
               >
                 <Home className="w-5 h-5" />
                 Go to Homepage
               </Link>
+
               <button
                 onClick={() => window.history.back()}
-                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-border font-semibold rounded-xl transition-all hover:bg-muted"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#ff9f43] text-black font-semibold rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all"
               >
                 <ArrowLeft className="w-5 h-5" />
                 Go Back
