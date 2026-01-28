@@ -264,11 +264,13 @@ const About = () => {
             style={{ animationDelay: "0.4s" }}
           >
             <div className="academy-card bg-[#1a2238] p-8 rounded-3xl shadow-lg text-center">
-              {/* Avatar */}
-              <div className="w-32 h-32 mx-auto rounded-full bg-[#00ffb3]/10 flex items-center justify-center mb-6">
-                <span className="text-4xl font-heading font-bold text-[#00ffb3]">
-                  MN
-                </span>
+              {/* Avatar Image */}
+              <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-[#00ffb3] shadow-md">
+                <img
+                  src="/noor.png"
+                  alt="Muhammad Noor"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Name & Position */}
