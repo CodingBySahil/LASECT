@@ -101,14 +101,28 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-16 hero-gradient">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6 fade-in-up">
+      <section className="relative pt-32 pb-16 bg-[#0f172a] overflow-hidden">
+        {/* Background Decorations */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-white/5 rounded-full blur-3xl" />
+          <div className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-white/5 rounded-full blur-3xl" />
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+      w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] 
+      from-white/10 via-transparent to-transparent"
+          />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            {/* Heading */}
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-[#00ffb3] mb-6 drop-shadow-[0_0_10px_#00ffb3] fade-in-up">
               Contact Us
             </h1>
+
+            {/* Subtitle */}
             <p
-              className="text-lg text-white/80 fade-in-up"
+              className="text-lg md:text-xl text-[#ff9f43] fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
               We'd love to hear from you. Get in touch with us today.
@@ -118,29 +132,34 @@ const Contact = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 bg-secondary/30">
+      <section className="py-16 bg-[#0f172a] my-16">
         <div className="container mx-auto px-4">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {contactInfo.map((item, index) => {
               const Icon = item.icon;
               const Content = item.link ? (
-                <a href={item.link} className="text-primary hover:underline">
+                <a
+                  href={item.link}
+                  className="text-[#00ffb3] hover:underline font-medium"
+                >
                   {item.content}
                 </a>
               ) : (
-                <span className="text-foreground">{item.content}</span>
+                <span className="text-white/80">{item.content}</span>
               );
 
               return (
                 <div
                   key={item.title}
-                  className="academy-card text-center fade-in-up"
+                  className={`academy-card bg-[#1a2238] rounded-3xl p-6 text-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all fade-in-up`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="w-12 h-12 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-primary" />
+                  <div className="w-16 h-16 mx-auto rounded-xl bg-[#00ffb3]/10 flex items-center justify-center mb-4">
+                    <Icon className="w-8 h-8 text-[#00ffb3]" />
                   </div>
-                  <h3 className="font-semibold mb-2">{item.title}</h3>
+                  <h3 className="text-lg font-heading font-semibold text-[#00ffb3] mb-2">
+                    {item.title}
+                  </h3>
                   {Content}
                 </div>
               );
@@ -150,7 +169,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Map */}
-      <section className="py-20">
+      <section className="py-20 bg-[#0f172a] my-16">
         <div className="container mx-auto px-4">
           <div
             ref={ref}
@@ -166,26 +185,32 @@ const Contact = () => {
                 title="Send us a Message"
                 subtitle="Have a question? We're here to help."
                 align="left"
+                titleClassName="text-[#00ffb3]"
+                subtitleClassName="text-[#ff9f43]"
               />
 
               {isSubmitted ? (
-                <div className="academy-card text-center py-12">
-                  <div className="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-4">
-                    <CheckCircle className="w-8 h-8 text-green-600" />
+                <div className="academy-card text-center py-12 bg-[#1a2238] rounded-3xl shadow-lg">
+                  <div className="w-16 h-16 mx-auto rounded-full bg-[#00ffb3]/20 flex items-center justify-center mb-4">
+                    <CheckCircle className="w-8 h-8 text-[#00ffb3]" />
                   </div>
-                  <h3 className="text-xl font-heading font-semibold mb-2">
+                  <h3 className="text-xl font-heading font-semibold text-[#00ffb3] mb-2">
                     Message Sent!
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-white/80">
                     Thank you for reaching out. We'll get back to you soon.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form
+                  onSubmit={handleSubmit}
+                  className="academy-card space-y-6 bg-[#1a2238] p-6 rounded-3xl shadow-lg"
+                >
+                  {/* Name */}
                   <div>
                     <label
                       htmlFor="name"
-                      className="text-sm font-medium mb-2 block"
+                      className="text-sm font-medium mb-2 block text-[#00ffb3]"
                     >
                       Your Name
                     </label>
@@ -196,8 +221,8 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.name ? "border-red-500" : "border-border"
-                      } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50`}
+                        errors.name ? "border-red-500" : "border-[#00ffb3]/50"
+                      } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                       placeholder="Enter your name"
                     />
                     {errors.name && (
@@ -208,10 +233,11 @@ const Contact = () => {
                     )}
                   </div>
 
+                  {/* Email */}
                   <div>
                     <label
                       htmlFor="email"
-                      className="text-sm font-medium mb-2 block"
+                      className="text-sm font-medium mb-2 block text-[#00ffb3]"
                     >
                       Email Address
                     </label>
@@ -222,8 +248,8 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.email ? "border-red-500" : "border-border"
-                      } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50`}
+                        errors.email ? "border-red-500" : "border-[#00ffb3]/50"
+                      } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                       placeholder="Enter your email"
                     />
                     {errors.email && (
@@ -234,10 +260,11 @@ const Contact = () => {
                     )}
                   </div>
 
+                  {/* Subject */}
                   <div>
                     <label
                       htmlFor="subject"
-                      className="text-sm font-medium mb-2 block"
+                      className="text-sm font-medium mb-2 block text-[#00ffb3]"
                     >
                       Subject
                     </label>
@@ -248,8 +275,10 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.subject ? "border-red-500" : "border-border"
-                      } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50`}
+                        errors.subject
+                          ? "border-red-500"
+                          : "border-[#00ffb3]/50"
+                      } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                       placeholder="What is this about?"
                     />
                     {errors.subject && (
@@ -260,10 +289,11 @@ const Contact = () => {
                     )}
                   </div>
 
+                  {/* Message */}
                   <div>
                     <label
                       htmlFor="message"
-                      className="text-sm font-medium mb-2 block"
+                      className="text-sm font-medium mb-2 block text-[#00ffb3]"
                     >
                       Message
                     </label>
@@ -274,8 +304,10 @@ const Contact = () => {
                       onChange={handleChange}
                       rows={5}
                       className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.message ? "border-red-500" : "border-border"
-                      } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none`}
+                        errors.message
+                          ? "border-red-500"
+                          : "border-[#00ffb3]/50"
+                      } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 resize-none transition-all`}
                       placeholder="Write your message here..."
                     />
                     {errors.message && (
@@ -289,7 +321,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full px-8 py-4 bg-primary text-primary-foreground font-bold rounded-xl transition-all hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
+                    className="w-full px-8 py-4 bg-[#00ffb3] text-black font-bold rounded-xl transition-all hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>
@@ -307,15 +339,17 @@ const Contact = () => {
               )}
             </div>
 
-            {/* Map */}
+            {/* Map & CTA */}
             <div>
               <SectionTitle
                 title="Find Us"
                 subtitle="Visit our campus in Peshawar."
                 align="left"
+                titleClassName="text-[#00ffb3]"
+                subtitleClassName="text-[#ff9f43]"
               />
 
-              <div className="academy-card h-80 lg:h-[calc(100%-120px)] overflow-hidden">
+              <div className="academy-card h-80 lg:h-[calc(85%-120px)] overflow-hidden bg-[#1a2238] rounded-3xl shadow-lg">
                 <iframe
                   title="LASECT Location"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106380.01289067015!2d71.41918435!3d33.9959047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d917b90f0e79cf%3A0xa816b2637558a412!2sPeshawar%2C%20Khyber%20Pakhtunkhwa%2C%20Pakistan!5e0!3m2!1sen!2s!4v1706000000000!5m2!1sen!2s"
@@ -328,12 +362,11 @@ const Contact = () => {
                 />
               </div>
 
-              {/* WhatsApp CTA */}
               <a
                 href="https://wa.me/923087890019"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 mt-6 px-6 py-4 bg-green-600 text-white font-semibold rounded-xl transition-all hover:bg-green-700 hover:shadow-lg"
+                className="flex items-center justify-center gap-3 mt-6 px-6 py-4 bg-[#25D366] text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:bg-[#1ebe57]"
               >
                 <MessageCircle className="w-5 h-5" />
                 Chat with us on WhatsApp
