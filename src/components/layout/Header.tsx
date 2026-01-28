@@ -41,7 +41,7 @@ export function Header() {
             <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center transition-transform group-hover:scale-105">
               <GraduationCap className="w-7 h-7 text-white" />
             </div>
-            <div className="hidden sm:block leading-tight">
+            <div className="block leading-tight">
               <span
                 className={`block font-bold text-lg transition-colors ${
                   isScrolled ? "text-gray-900" : "text-white"
@@ -54,7 +54,7 @@ export function Header() {
                   isScrolled ? "text-gray-500" : "text-white/80"
                 }`}
               >
-                London Academy
+                The London Academy
               </span>
             </div>
           </Link>
@@ -96,7 +96,7 @@ export function Header() {
               }`}
             >
               <Phone className="w-4 h-4" />
-              <span>+92 308 7890019</span>
+              <span>+92 335 4343943</span>
             </a>
 
             <Link
@@ -154,7 +154,7 @@ export function Header() {
                 className="flex items-center gap-2 px-4 py-3 text-gray-600"
               >
                 <Phone className="w-4 h-4" />
-                <span>+92 308 7890019</span>
+                <span>+92 335 4343943</span>
               </a>
 
               <Link

@@ -1,19 +1,26 @@
-import { useState } from 'react';
-import { Layout } from '@/components/layout/Layout';
-import { SectionTitle } from '@/components/ui/SectionTitle';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { 
-  MapPin, Phone, Mail, Clock, Send, 
-  CheckCircle, Loader2, AlertCircle, MessageCircle 
-} from 'lucide-react';
+import { useState } from "react";
+import { Layout } from "@/components/layout/Layout";
+import { SectionTitle } from "@/components/ui/SectionTitle";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import {
+  MapPin,
+  MessageCircleMore,
+  Mail,
+  Clock,
+  Send,
+  CheckCircle,
+  Loader2,
+  AlertCircle,
+  MessageCircle,
+} from "lucide-react";
 
 const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,26 +29,27 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: 'Address',
-      content: 'Qamardin Ghari, Peshawar, Pakistan',
+      title: "Address",
+      content:
+        "Ring Road Bridge, Near Girls primary school, Ghari qamar din Peshawar",
       link: null,
     },
     {
-      icon: Phone,
-      title: 'Phone / WhatsApp',
-      content: '+92 308 7890019',
-      link: 'tel:+923087890019',
+      icon: MessageCircleMore,
+      title: "Phone / WhatsApp",
+      content: "+92 335 4343943",
+      link: "tel:+923087890019",
     },
     {
       icon: Mail,
-      title: 'Email',
-      content: 'info@lasect.edu.pk',
-      link: 'mailto:info@lasect.edu.pk',
+      title: "Email",
+      content: "info@lasect.edu.pk",
+      link: "mailto:info@lasect.edu.pk",
     },
     {
       icon: Clock,
-      title: 'Office Hours',
-      content: 'Mon - Sat: 9:00 AM - 8:00 PM',
+      title: "Office Hours",
+      content: "Mon - Sat: 9:00 AM - 8:00 PM",
       link: null,
     },
   ];
@@ -50,20 +58,20 @@ const Contact = () => {
     const newErrors: { [key: string]: string } = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = "Name is required";
     }
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
+      newErrors.email = "Please enter a valid email";
     }
     if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
+      newErrors.subject = "Subject is required";
     }
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
+      newErrors.message = "Message is required";
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters';
+      newErrors.message = "Message must be at least 10 characters";
     }
 
     setErrors(newErrors);
@@ -75,16 +83,18 @@ const Contact = () => {
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setIsSubmitted(true);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
@@ -97,7 +107,10 @@ const Contact = () => {
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6 fade-in-up">
               Contact Us
             </h1>
-            <p className="text-lg text-white/80 fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <p
+              className="text-lg text-white/80 fade-in-up"
+              style={{ animationDelay: "0.2s" }}
+            >
               We'd love to hear from you. Get in touch with us today.
             </p>
           </div>
@@ -139,10 +152,12 @@ const Contact = () => {
       {/* Contact Form & Map */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div 
+          <div
             ref={ref}
             className={`grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
             }`}
           >
             {/* Form */}
@@ -158,7 +173,9 @@ const Contact = () => {
                   <div className="w-16 h-16 mx-auto rounded-full bg-green-100 flex items-center justify-center mb-4">
                     <CheckCircle className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="text-xl font-heading font-semibold mb-2">Message Sent!</h3>
+                  <h3 className="text-xl font-heading font-semibold mb-2">
+                    Message Sent!
+                  </h3>
                   <p className="text-muted-foreground">
                     Thank you for reaching out. We'll get back to you soon.
                   </p>
@@ -166,7 +183,10 @@ const Contact = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <label htmlFor="name" className="text-sm font-medium mb-2 block">
+                    <label
+                      htmlFor="name"
+                      className="text-sm font-medium mb-2 block"
+                    >
                       Your Name
                     </label>
                     <input
@@ -176,7 +196,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.name ? 'border-red-500' : 'border-border'
+                        errors.name ? "border-red-500" : "border-border"
                       } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50`}
                       placeholder="Enter your name"
                     />
@@ -189,7 +209,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="text-sm font-medium mb-2 block">
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-medium mb-2 block"
+                    >
                       Email Address
                     </label>
                     <input
@@ -199,7 +222,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.email ? 'border-red-500' : 'border-border'
+                        errors.email ? "border-red-500" : "border-border"
                       } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50`}
                       placeholder="Enter your email"
                     />
@@ -212,7 +235,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="text-sm font-medium mb-2 block">
+                    <label
+                      htmlFor="subject"
+                      className="text-sm font-medium mb-2 block"
+                    >
                       Subject
                     </label>
                     <input
@@ -222,7 +248,7 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.subject ? 'border-red-500' : 'border-border'
+                        errors.subject ? "border-red-500" : "border-border"
                       } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50`}
                       placeholder="What is this about?"
                     />
@@ -235,7 +261,10 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="text-sm font-medium mb-2 block">
+                    <label
+                      htmlFor="message"
+                      className="text-sm font-medium mb-2 block"
+                    >
                       Message
                     </label>
                     <textarea
@@ -245,7 +274,7 @@ const Contact = () => {
                       onChange={handleChange}
                       rows={5}
                       className={`w-full px-4 py-3 rounded-xl border ${
-                        errors.message ? 'border-red-500' : 'border-border'
+                        errors.message ? "border-red-500" : "border-border"
                       } bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none`}
                       placeholder="Write your message here..."
                     />
@@ -292,7 +321,7 @@ const Contact = () => {
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106380.01289067015!2d71.41918435!3d33.9959047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d917b90f0e79cf%3A0xa816b2637558a412!2sPeshawar%2C%20Khyber%20Pakhtunkhwa%2C%20Pakistan!5e0!3m2!1sen!2s!4v1706000000000!5m2!1sen!2s"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, borderRadius: '0.75rem' }}
+                  style={{ border: 0, borderRadius: "0.75rem" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
