@@ -267,7 +267,7 @@ const About = () => {
               {/* Avatar Image */}
               <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-[#00ffb3] shadow-md">
                 <img
-                  src="/noor.png"
+                  src="public/noor.png"
                   alt="Muhammad Noor"
                   className="w-full h-full object-cover"
                 />
