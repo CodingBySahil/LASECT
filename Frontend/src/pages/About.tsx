@@ -123,11 +123,10 @@ const About = () => {
             {/* Mission */}
             <div
               ref={missionRef}
-              className={`academy-card bg-[#1a2238] p-8 rounded-3xl shadow-lg transition-all duration-700 ${
-                missionVisible
+              className={`academy-card bg-[#1a2238] p-8 rounded-3xl shadow-lg transition-all duration-700 ${missionVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
-              }`}
+                }`}
             >
               <div className="w-16 h-16 rounded-2xl bg-[#00ffb3]/10 flex items-center justify-center mb-6">
                 <Target className="w-8 h-8 text-[#00ffb3]" />
@@ -150,11 +149,10 @@ const About = () => {
             {/* Vision */}
             <div
               ref={visionRef}
-              className={`academy-card bg-[#1a2238] p-8 rounded-3xl shadow-lg transition-all duration-700 delay-200 ${
-                visionVisible
+              className={`academy-card bg-[#1a2238] p-8 rounded-3xl shadow-lg transition-all duration-700 delay-200 ${visionVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
-              }`}
+                }`}
             >
               <div className="w-16 h-16 rounded-2xl bg-[#00ffb3]/10 flex items-center justify-center mb-6">
                 <Eye className="w-8 h-8 text-[#00ffb3]" />
@@ -209,11 +207,10 @@ const About = () => {
               return (
                 <div
                   key={value.title}
-                  className={`text-center bg-[#1a2238] p-6 rounded-3xl shadow-lg transition-all duration-500 ${
-                    valuesVisible
+                  className={`text-center bg-[#1a2238] p-6 rounded-3xl shadow-lg transition-all duration-500 ${valuesVisible
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"
-                  }`}
+                    }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <div className="w-16 h-16 mx-auto rounded-2xl bg-[#00ffb3]/10 flex items-center justify-center mb-4">
@@ -272,7 +269,7 @@ const About = () => {
               {/* Avatar Image */}
               <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-[#00ffb3] shadow-[0_0_20px_#00ffb3] transition-all duration-500 hover:shadow-[0_0_25px_#ff9f43]">
                 <img
-                  src="public/noor.png"
+                  src="Noor.png"
                   alt="Muhammad Noor"
                   className="w-full h-full object-cover"
                 />

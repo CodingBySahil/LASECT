@@ -13,6 +13,8 @@ import {
   ArrowRight,
   Link,
 } from "lucide-react";
+import axios from 'axios'
+
 
 interface FormData {
   fullName: string;
@@ -99,18 +101,20 @@ const Register = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
+  if (!validateForm()) return;
 
-    if (!validateForm()) return;
+  setIsSubmitting(true);
 
-    setIsSubmitting(true);
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
+  try {
+    await axios.post("http://localhost:5000/api/registrations", formData);
     setIsSubmitted(true);
-  };
+  } catch (error) {
+    console.error(error);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
