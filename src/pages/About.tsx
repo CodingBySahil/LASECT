@@ -263,9 +263,14 @@ const About = () => {
             className="max-w-2xl mx-auto fade-in-up"
             style={{ animationDelay: "0.4s" }}
           >
-            <div className="academy-card bg-[#1a2238] p-8 rounded-3xl shadow-lg text-center">
+            <div
+              className="academy-card relative bg-[#1a2238] p-8 rounded-3xl shadow-lg text-center
+                      border-2 border-[#00ffb3]/50 hover:border-[#ff9f43] 
+                      transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl
+                      animate-fade-in-up"
+            >
               {/* Avatar Image */}
-              <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-[#00ffb3] shadow-md">
+              <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-6 border-4 border-[#00ffb3] shadow-[0_0_20px_#00ffb3] transition-all duration-500 hover:shadow-[0_0_25px_#ff9f43]">
                 <img
                   src="public/noor.png"
                   alt="Muhammad Noor"
