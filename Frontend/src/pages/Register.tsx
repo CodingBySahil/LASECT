@@ -101,20 +101,20 @@ const Register = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  if (!validateForm()) return;
+    e.preventDefault();
+    if (!validateForm()) return;
 
-  setIsSubmitting(true);
+    setIsSubmitting(true);
 
-  try {
-    await axios.post("http://localhost:5000/api/registrations", formData);
-    setIsSubmitted(true);
-  } catch (error) {
-    console.error(error);
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+    try {
+      await axios.post("http://localhost:5000/api/registrations", formData);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -181,22 +181,21 @@ const Register = () => {
   return (
     <Layout>
       {/* Register Now Section */}
-      <section className="relative pt-32 pb-24 overflow-hidden bg-[#0f172a]">
+      <section className="relative pt-32 pb-28 overflow-hidden bg-[#0f172a]">
         {/* Background Decorations */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-white/5 rounded-full blur-3xl" />
-          <div className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-white/5 rounded-full blur-3xl" />
+          <div className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-emerald-400/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-cyan-400/10 rounded-full blur-3xl" />
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-        w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] 
-        from-white/10 via-transparent to-transparent"
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
+      from-white/10 via-transparent to-transparent"
           />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             {/* Section Title */}
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-[#00ffb3]   animate-fade-in-up">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-[#00ffb3] animate-fade-in-up">
               Register Now
             </h1>
 
@@ -205,22 +204,52 @@ const Register = () => {
               className="text-lg md:text-xl text-white/80 animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
-              Take the first step towards your success at LASECT
+              Take the first step towards your success at LASECT Academy
             </p>
+
+            {/* CTA Button */}
+            <div
+              className="flex justify-center animate-fade-in-up"
+              style={{ animationDelay: "0.4s" }}
+            >
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdshEcdCvQGQVRqzUC-aqLd-oF85mbZ2py1Pl0xik6tBUunJA/viewform?usp=publish-editor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+            group relative inline-flex items-center gap-3
+            px-10 py-4 rounded-2xl font-semibold text-white
+            bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-500
+            shadow-lg shadow-emerald-500/30
+            hover:shadow-emerald-500/60
+            hover:scale-105 active:scale-95
+            transition-all duration-300
+            focus:outline-none focus:ring-4 focus:ring-emerald-400/40
+          "
+              >
+                {/* Glow Effect */}
+                <span className="absolute inset-0 rounded-2xl bg-white/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></span>
+
+                <span className="relative z-10">
+                  Apply for Scholarship
+                </span>
+
+                <ArrowRight className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Form Section */}
-      <section className="py-20 bg-[#0f172a] my-16">
+      {/* Form Section this form is temporary hidden*/}
+      <section className="py-20 bg-[#0f172a] my-16 hidden">
         <div className="container mx-auto px-4">
           <div
             ref={ref}
-            className={`max-w-2xl mx-auto transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
+            className={`max-w-2xl mx-auto transition-all duration-700 ${isVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-8"
+              }`}
           >
             <SectionTitle
               title="Registration Form"
@@ -248,9 +277,8 @@ const Register = () => {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-xl border ${
-                    errors.fullName ? "border-red-500" : "border-[#00ffb3]/50"
-                  } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
+                  className={`w-full px-4 py-3 rounded-xl border ${errors.fullName ? "border-red-500" : "border-[#00ffb3]/50"
+                    } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                   placeholder="Enter your full name"
                 />
                 {errors.fullName && (
@@ -276,9 +304,8 @@ const Register = () => {
                   name="fatherName"
                   value={formData.fatherName}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-xl border ${
-                    errors.fatherName ? "border-red-500" : "border-[#00ffb3]/50"
-                  } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
+                  className={`w-full px-4 py-3 rounded-xl border ${errors.fatherName ? "border-red-500" : "border-[#00ffb3]/50"
+                    } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                   placeholder="Enter your father's name"
                 />
                 {errors.fatherName && (
@@ -298,11 +325,10 @@ const Register = () => {
                   {["Male", "Female", "Other"].map((option) => (
                     <label
                       key={option}
-                      className={`flex items-center gap-2 px-4 py-3 rounded-xl border cursor-pointer transition-all ${
-                        formData.gender === option
-                          ? "border-[#00ffb3] bg-[#00ffb3]/10"
-                          : "border-[#00ffb3]/30 hover:border-[#00ffb3]/50"
-                      } text-white`}
+                      className={`flex items-center gap-2 px-4 py-3 rounded-xl border cursor-pointer transition-all ${formData.gender === option
+                        ? "border-[#00ffb3] bg-[#00ffb3]/10"
+                        : "border-[#00ffb3]/30 hover:border-[#00ffb3]/50"
+                        } text-white`}
                     >
                       <input
                         type="radio"
@@ -313,11 +339,10 @@ const Register = () => {
                         className="sr-only"
                       />
                       <div
-                        className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
-                          formData.gender === option
-                            ? "border-[#00ffb3]"
-                            : "border-white/40"
-                        }`}
+                        className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${formData.gender === option
+                          ? "border-[#00ffb3]"
+                          : "border-white/40"
+                          }`}
                       >
                         {formData.gender === option && (
                           <div className="w-2 h-2 rounded-full bg-[#00ffb3]" />
@@ -349,9 +374,8 @@ const Register = () => {
                   name="timeSlot"
                   value={formData.timeSlot}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-xl border ${
-                    errors.timeSlot ? "border-red-500" : "border-[#00ffb3]/50"
-                  } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
+                  className={`w-full px-4 py-3 rounded-xl border ${errors.timeSlot ? "border-red-500" : "border-[#00ffb3]/50"
+                    } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                 >
                   <option value="">Select a time slot</option>
                   {timeSlots.map((slot) => (
@@ -383,11 +407,10 @@ const Register = () => {
                   name="whatsappNumber"
                   value={formData.whatsappNumber}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-xl border ${
-                    errors.whatsappNumber
-                      ? "border-red-500"
-                      : "border-[#00ffb3]/50"
-                  } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
+                  className={`w-full px-4 py-3 rounded-xl border ${errors.whatsappNumber
+                    ? "border-red-500"
+                    : "border-[#00ffb3]/50"
+                    } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                   placeholder="e.g., 03001234567"
                 />
                 {errors.whatsappNumber && (
@@ -413,11 +436,10 @@ const Register = () => {
                   name="phoneNumber"
                   value={formData.phoneNumber}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-xl border ${
-                    errors.phoneNumber
-                      ? "border-red-500"
-                      : "border-[#00ffb3]/50"
-                  } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
+                  className={`w-full px-4 py-3 rounded-xl border ${errors.phoneNumber
+                    ? "border-red-500"
+                    : "border-[#00ffb3]/50"
+                    } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                   placeholder="e.g., 03001234567"
                 />
                 {errors.phoneNumber && (
@@ -443,9 +465,8 @@ const Register = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-xl border ${
-                    errors.email ? "border-red-500" : "border-[#00ffb3]/50"
-                  } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
+                  className={`w-full px-4 py-3 rounded-xl border ${errors.email ? "border-red-500" : "border-[#00ffb3]/50"
+                    } bg-[#0f172a] text-white focus:outline-none focus:ring-2 focus:ring-[#00ffb3]/50 transition-all`}
                   placeholder="Enter your email address"
                 />
                 {errors.email && (
