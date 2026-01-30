@@ -38,7 +38,7 @@ const Contact = () => {
       icon: MessageCircleMore,
       title: "Phone / WhatsApp",
       content: "+92 335 4343943",
-      link: "tel:+923087890019",
+      link: "https://wa.me/923354343943",
     },
     {
       icon: Mail,
@@ -320,8 +320,8 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full px-8 py-4 bg-[#00ffb3] text-black font-bold rounded-xl transition-all hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
+                    disabled={true}
+                    className="cursor-wait w-full px-8 py-4 bg-[#00ffb3] text-black font-bold rounded-xl transition-all hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
                   >
                     {isSubmitting ? (
                       <>
@@ -331,7 +331,7 @@ const Contact = () => {
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        Send Message
+                        Send Message 
                       </>
                     )}
                   </button>

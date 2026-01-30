@@ -17,9 +17,8 @@ export function Footer() {
   return (
     <footer
       ref={ref}
-      className={`relative bg-[#0f172a] text-white transition-opacity duration-700 ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      className={`relative bg-[#0f172a] text-white transition-opacity duration-700 ${isVisible ? "opacity-100" : "opacity-0"
+        }`}
     >
       {/* Top Section */}
       <div className="container mx-auto px-4 pt-20 pb-14">
@@ -113,11 +112,14 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <MessageCircleMore className="w-5 h-5 text-[#ff9f43]/80" />
                 <a
-                  href="tel:+923354343943"
+                  href="https://wa.me/923354343943"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white/80 hover:text-[#00ffb3] transition-colors"
                 >
                   +92 335 4343943
                 </a>
+
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#ff9f43]/80" />

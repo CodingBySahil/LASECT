@@ -212,11 +212,10 @@ const Scholarship = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div
             ref={overviewRef}
-            className={`max-w-4xl mx-auto transition-all duration-700 rounded-3xl p-10 bg-[#1a2238] shadow-lg ${
-              overviewVisible
+            className={`max-w-4xl mx-auto transition-all duration-700 rounded-3xl p-10 bg-[#1a2238] shadow-lg ${overviewVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
-            }`}
+              }`}
           >
             {/* Section Title */}
             <SectionTitle
@@ -293,11 +292,10 @@ const Scholarship = () => {
               return (
                 <div
                   key={prize.position}
-                  className={`academy-card relative overflow-hidden rounded-3xl p-8 bg-gradient-to-br from-[#1e293b] to-[#0f172a] shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-700 ${
-                    prizesVisible
+                  className={`academy-card relative overflow-hidden rounded-3xl p-8 bg-gradient-to-br from-[#1e293b] to-[#0f172a] shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-700 ${prizesVisible
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"
-                  }`}
+                    }`}
                   style={{ transitionDelay: `${index * 150}ms` }}
                 >
                   {/* Top Gradient Bar */}
@@ -375,11 +373,10 @@ const Scholarship = () => {
             {howToApply.map((item, index) => (
               <div
                 key={item.step}
-                className={`relative transition-all duration-700 ${
-                  processVisible
+                className={`relative transition-all duration-700 ${processVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-8"
-                }`}
+                  }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 {/* Horizontal connector for desktop */}
@@ -428,11 +425,10 @@ const Scholarship = () => {
             {syllabusTopics.map((section, index) => (
               <div
                 key={section.category}
-                className={`academy-card rounded-2xl p-6 bg-gradient-to-br from-[#1e293b] to-[#0f172a] shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-700 ${
-                  syllabusVisible
+                className={`academy-card rounded-2xl p-6 bg-gradient-to-br from-[#1e293b] to-[#0f172a] shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-700 ${syllabusVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-8"
-                }`}
+                  }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-center gap-2 mb-4">
@@ -532,14 +528,17 @@ const Scholarship = () => {
               <ArrowRight className="w-5 h-5" />
             </Link>
 
-            {/* Call / WhatsApp */}
+            {/* WhatsApp */}
             <a
-              href="tel:+923354343943"
+              href="https://wa.me/923354343943"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-10 py-4 bg-[#25D366] text-white font-semibold rounded-3xl shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95 transition-all"
             >
               <Phone className="w-5 h-5" />
               +92 335 4343943
             </a>
+
           </div>
         </div>
       </section>

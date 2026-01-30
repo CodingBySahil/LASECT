@@ -18,9 +18,8 @@ export function CTASection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div
-          className={`bg-gradient-to-br from-[#1e293b]/80 to-[#0f172a]/80 rounded-3xl p-8 md:p-16 text-center shadow-2xl transition-all duration-700 ${
-            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          }`}
+          className={`bg-gradient-to-br from-[#1e293b]/80 to-[#0f172a]/80 rounded-3xl p-8 md:p-16 text-center shadow-2xl transition-all duration-700 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+            }`}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-[#00ffb3] mb-6">
             Ready to Transform Your Future?
@@ -43,11 +42,13 @@ export function CTASection() {
             </Link>
 
             <a
-              href="tel:+923087890019"
+              href="https://wa.me/923354343943"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#00ffb3]/10 text-[#00ffb3] font-semibold rounded-xl border-2 border-[#00ffb3]/30 transition-all hover:bg-[#00ffb3]/20 hover:border-[#00ffb3]/50"
             >
               <MessageCircleMore className="w-5 h-5" />
-              +92 335 4343943
+              Chat on WhatsApp
             </a>
           </div>
         </div>
